@@ -1,5 +1,5 @@
 {
-  "name": "git-commit",
+  "name": "git",
   "description": "自动 Git 提交工具，一键生成语义化提交信息",
   "version": "0.1.0",
   "author": {
