@@ -1,0 +1,18 @@
+{
+  "$schema": "https://claude.ai/registry/schema.json",
+  "name": "git-commit",
+  "version": "0.1.0",
+  "description": "自动 Git 提交工具，一键生成语义化提交信息",
+  "type": "plugin",
+  "author": "your-username",
+  "license": "MIT",
+  "files": [
+    {
+      "type": "plugin",
+      "path": ".claude-plugin/plugins/git-commit"
+    }
+  ],
+  "dependencies": [],
+  "devDependencies": [],
+  "scripts": {}
+}

@@ -1,0 +1,12 @@
+{
+  "name": "my-dotai",
+  "version": "0.1.0",
+  "description": "Claude Code 插件集合",
+  "plugins": [
+    {
+      "name": "git-commit",
+      "description": "自动 Git 提交工具",
+      "url": "https://raw.githubusercontent.com/fushenyou/my-dotai/main/registry/git-commit.json"
+    }
+  ]
+}

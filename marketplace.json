@@ -1,0 +1,24 @@
+{
+  "name": "my-dotai",
+  "description": "Claude Code 插件集合 - 简化开发工作流",
+  "version": "0.1.0",
+  "author": "fushenyou",
+  "homepage": "https://github.com/fushenyou/my-dotai",
+  "repository": "https://github.com/fushenyou/my-dotai",
+  "license": "MIT",
+  "plugins": [
+    {
+      "name": "git-commit",
+      "description": "自动 Git 提交工具，一键生成语义化提交信息",
+      "version": "0.1.0",
+      "path": ".claude-plugin/plugins/git-commit",
+      "commands": [
+        {
+          "name": "commit",
+          "description": "自动暂存、分析修改、生成提交信息并提交"
+        }
+      ],
+      "tags": ["git", "commit", "workflow"]
+    }
+  ]
+}
