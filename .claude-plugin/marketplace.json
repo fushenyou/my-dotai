@@ -5,5 +5,12 @@
   "author": "fushenyou",
   "homepage": "https://github.com/fushenyou/my-dotai",
   "repository": "https://github.com/fushenyou/my-dotai",
-  "license": "MIT"
+  "license": "MIT",
+  "plugins": [
+    {
+      "name": "git-commit",
+      "description": "自动 Git 提交工具，一键生成语义化提交信息",
+      "path": "plugins/git-commit"
+    }
+  ]
 }
