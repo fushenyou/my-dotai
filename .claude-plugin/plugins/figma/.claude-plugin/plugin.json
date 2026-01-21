@@ -1,19 +1,12 @@
 {
   "name": "figma",
-  "displayName": "Figma 设计稿转代码",
   "version": "1.0.0",
   "description": "自动从 Figma 设计稿生成代码，支持多种前端框架",
-  "author": "fusy",
+  "author": {
+    "name": "fusy"
+  },
   "license": "MIT",
-  "commands": [
-    {
-      "name": "figma:to-code",
-      "displayName": "/figma",
-      "description": "从 Figma 设计稿生成代码",
-      "file": "commands/to-code.md"
-    }
-  ],
-  "mcp": ".mcp.json",
+  "mcpServers": ".mcp.json",
   "hooks": {
     "onInstall": "scripts/install.sh",
     "onUninstall": "scripts/uninstall.sh"
