@@ -1,0 +1,9 @@
+{
+  "name": "figma",
+  "description": "Figma 设计稿转代码插件，高度还原设计稿细节",
+  "version": "0.1.0",
+  "author": {
+    "name": "fushenyou",
+    "email": "fushenyou@users.noreply.github.com"
+  }
+}

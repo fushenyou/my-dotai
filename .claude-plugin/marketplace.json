@@ -13,6 +13,11 @@
       "name": "git",
       "source": "./.claude-plugin/plugins/git",
       "description": "自动 Git 提交工具，一键生成语义化提交信息"
+    },
+    {
+      "name": "figma",
+      "source": "./.claude-plugin/plugins/figma",
+      "description": "Figma 设计稿转代码插件，通过 figma-developer-mcp 高度还原设计细节"
     }
   ]
 }

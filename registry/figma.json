@@ -1,0 +1,20 @@
+{
+  "$schema": "https://claude.ai/registry/schema.json",
+  "name": "figma",
+  "version": "0.1.0",
+  "description": "Figma 设计稿转代码插件，通过 figma-developer-mcp 高度还原设计细节",
+  "type": "plugin",
+  "author": "fushenyou",
+  "license": "MIT",
+  "files": [
+    {
+      "type": "plugin",
+      "path": ".claude-plugin/plugins/figma"
+    }
+  ],
+  "dependencies": [],
+  "devDependencies": [],
+  "scripts": {
+    "postinstall": "bash .claude-plugin/plugins/figma/install.sh"
+  }
+}

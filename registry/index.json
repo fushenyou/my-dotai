@@ -4,9 +4,14 @@
   "description": "Claude Code 插件集合",
   "plugins": [
     {
-      "name": "git-commit",
+      "name": "git",
       "description": "自动 Git 提交工具",
       "url": "https://raw.githubusercontent.com/fushenyou/my-dotai/main/registry/git-commit.json"
+    },
+    {
+      "name": "figma",
+      "description": "Figma 设计稿转代码插件",
+      "url": "https://raw.githubusercontent.com/fushenyou/my-dotai/main/registry/figma.json"
     }
   ]
 }
