@@ -1,40 +1,15 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "figma",
-  "version": "1.0.0",
-  "displayName": "Figma 设计稿转代码",
-  "description": "自动从 Figma 设计稿生成前端代码，智能识别项目框架和编码规范",
-  "author": "fusy",
-  "license": "MIT",
-  "homepage": "https://github.com/fusy/my-dotai",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fusy/my-dotai.git"
-  },
-  "keywords": [
-    "figma",
-    "design",
-    "code-generation",
-    "ui",
-    "react",
-    "vue",
-    "svelte",
-    "angular"
-  ],
-  "commands": [
+  "type": "registry:item",
+  "title": "Figma 设计稿转代码",
+  "description": "自动从 Figma 设计稿生成前端代码",
+  "files": [
     {
-      "id": "figma:to-code",
-      "name": "/figma",
-      "description": "从 Figma 设计稿生成代码"
+      "path": "registry/figma/figma.json",
+      "content": "{\n  \"permissions\": {\n    \"allow\": [\"Bash\", \"Edit\", \"Skill(dotai:*)\"]\n  },\n  \"enableAllProjectMcpServers\": true,\n  \"extraKnownMarketplaces\": {\n    \"dotai\": {\n      \"source\": {\n        \"source\": \"github\",\n        \"repo\": \"udecode/dotai\"\n      }\n    }\n  },\n  \"enabledPlugins\": {\n    \"dotai@dotai\": true,\n    \"notification@dotai\": true,\n    \"media@dotai\": false,\n    \"codex@dotai\": true,\n    \"plan@dotai\": true,\n    \"agents@dotai\": true,\n    \"debug@dotai\": true,\n    \"test@dotai\": true,\n    \"skills@dotai\": true,\n    \"git@dotai\": true\n  },\n  \"hooks\": {\n    \"UserPromptSubmit\": [\n      {\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"if [ -f \\\".claude/scripts/user-prompt-submit.sh\\\" ]; then .claude/scripts/user-prompt-submit.sh; fi\"\n          }\n        ]\n      }\n    ],\n    \"SessionStart\": [\n      {\n        \"matcher\": \"startup|clear|compact\",\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"if [ -f \\\".claude/scripts/session-start.sh\\\" ]; then .claude/scripts/session-start.sh; fi\"\n          }\n        ]\n      },\n      {\n        \"matcher\": \"compact\",\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"if [ -f \\\".claude/scripts/post-compact.sh\\\" ]; then .claude/scripts/post-compact.sh; fi\"\n          }\n        ]\n      }\n    ]\n  }\n}\n",
+      "type": "registry:file",
+      "target": "~/.claude/figma.json"
     }
-  ],
-  "mcp": {
-    "server": "Framelink Figma MCP",
-    "package": "figma-developer-mcp"
-  },
-  "dependencies": {
-    "node": ">=14.0.0",
-    "npm": ">=6.0.0"
-  },
-  "installed": false,
-  "installedAt": null
+  ]
 }
