@@ -6,9 +6,5 @@
     "name": "fusy"
   },
   "license": "MIT",
-  "mcpServers": ".mcp.json",
-  "hooks": {
-    "onInstall": "scripts/install.sh",
-    "onUninstall": "scripts/uninstall.sh"
-  }
+  "mcpServers": "./.mcp.json"
 }
