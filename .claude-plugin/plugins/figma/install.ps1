@@ -15,13 +15,19 @@ if ([string]::IsNullOrEmpty($FigmaApiKey)) {
     $FigmaApiKey = Read-Host "请输入 Figma API Key (figd_xxxx)"
 }
 
-# 验证 API Key 格式
-if (-not $FigmaApiKey.StartsWith("figd_")) {
-    Write-Host "错误：Figma API Key 格式不正确，应该以 'figd_' 开头" -ForegroundColor Red
+# 验证 API Key 格式（检查长度，而不是强制前缀）
+# Figma Personal Access Token 通常以 figd_ 开头，但我们也接受其他格式
+if ($FigmaApiKey.Length -lt 20) {
+    Write-Host "错误：Figma API Key 长度不足，请检查是否正确" -ForegroundColor Red
     exit 1
 }
 
 Write-Host "✓ API Key 验证通过" -ForegroundColor Green
+if ($FigmaApiKey.StartsWith("figd_")) {
+    Write-Host "  (标准 Personal Access Token 格式)" -ForegroundColor Green
+} else {
+    Write-Host "  (注意：此 Token 不是标准的 figd_ 格式，如遇到问题请检查)" -ForegroundColor Yellow
+}
 
 # Claude Code 配置目录
 $claudeDir = "$env:USERPROFILE\.claude"

@@ -6,7 +6,9 @@
 
 1. 访问 https://www.figma.com/developers/api#access-tokens
 2. 点击 "Create new access token"
-3. 复制生成的 token（格式：`figd_xxxx...`）
+3. 复制生成的 token
+   - **标准格式**：`figd_xxxx...`（Personal Access Token）
+   - 其他格式也可以使用，脚本会智能识别
 
 ### 步骤 2: 安装插件
 
@@ -77,6 +79,9 @@ A: 重新运行配置脚本即可：
 ```bash
 bash .claude-plugin/plugins/figma/install.sh new_token_here
 ```
+
+### Q: 必须是 `figd_` 开头的 Token 吗？
+A: 不是必须的。虽然标准的 Figma Personal Access Token 以 `figd_` 开头，但脚本也接受其他格式的有效 Token（长度至少 20 字符）。如果使用非标准格式，脚本会给出友好提示。
 
 ### Q: 脚本提示 "jq: command not found"？
 A: 不影响使用，可以手动编辑 `~/.claude/settings.json`。

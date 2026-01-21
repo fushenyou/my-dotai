@@ -22,13 +22,19 @@ else
     FIGMA_API_KEY="$1"
 fi
 
-# 验证 API Key 格式
-if [[ ! $FIGMA_API_KEY =~ ^figd_ ]]; then
-    echo -e "${RED}错误：Figma API Key 格式不正确，应该以 'figd_' 开头${NC}"
+# 验证 API Key 格式（检查长度，而不是强制前缀）
+# Figma Personal Access Token 通常以 figd_ 开头，但我们也接受其他格式
+if [ ${#FIGMA_API_KEY} -lt 20 ]; then
+    echo -e "${RED}错误：Figma API Key 长度不足，请检查是否正确${NC}"
     exit 1
 fi
 
 echo -e "${GREEN}✓ API Key 验证通过${NC}"
+if [[ $FIGMA_API_KEY =~ ^figd_ ]]; then
+    echo -e "${GREEN}  (标准 Personal Access Token 格式)${NC}"
+else
+    echo -e "${YELLOW}  (注意：此 Token 不是标准的 figd_ 格式，如遇到问题请检查)${NC}"
+fi
 
 # Claude Code 配置目录
 CLAUDE_DIR="$HOME/.claude"

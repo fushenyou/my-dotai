@@ -47,6 +47,8 @@ Figma 插件通过 figma-developer-mcp 获取 Figma 设计稿的详细信息，�
 1. **获取 Figma Access Token**
 
    访问 [Figma Developer Settings](https://www.figma.com/developers/api#access-tokens) 创建个人访问令牌。
+   - 标准格式：`figd_xxxxx...`（Personal Access Token）
+   - 脚本也支持其他格式，只要 Token 有效即可
 
 2. **在安装时配置 Token**
 
