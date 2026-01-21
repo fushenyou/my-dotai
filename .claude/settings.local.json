@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(create-plugin)",
+      "Skill(git:commit)",
+      "Skill(skills:using-skills)"
+    ]
+  }
+}

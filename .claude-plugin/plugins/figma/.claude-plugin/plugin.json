@@ -1,0 +1,22 @@
+{
+  "name": "figma",
+  "version": "0.1.0",
+  "description": "通过 Figma MCP 工具自动生成代码。支持从 Figma 设计文件创建页面和可复用组件，遵循项目的代码规范和框架约定。",
+  "author": {
+    "name": ""
+  },
+  "keywords": [
+    "figma",
+    "code-generation",
+    "design-to-code",
+    "ui-components",
+    "workflow"
+  ],
+  "license": "MIT",
+  "mcpServers": {
+    "figma-developer-mcp": {
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp"]
+    }
+  }
+}
