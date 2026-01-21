@@ -5,15 +5,6 @@
   "description": "自动从 Figma 设计稿生成代码，支持多种前端框架",
   "author": "fusy",
   "license": "MIT",
-  "skills": [
-    {
-      "name": "figma:design-to-code",
-      "displayName": "Figma 设计稿转代码",
-      "description": "根据 Figma 设计稿自动生成前端代码，智能识别项目框架和规范",
-      "file": "SKILL.md",
-      "alwaysApply": false
-    }
-  ],
   "commands": [
     {
       "name": "figma:to-code",

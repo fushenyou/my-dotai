@@ -36,7 +36,7 @@ Figma 设计稿转代码插件，通过 figma-developer-mcp 高度还原设计�
 
 **使用**：
 ```bash
-/figma:design-to-code
+/figma
 ```
 
 **文档**：[Figma 插件文档](./.claude-plugin/plugins/figma/README.md)
@@ -117,7 +117,7 @@ powershell -ExecutionPolicy Bypass -File install.ps1 -FigmaApiKey "figd_your_tok
 
 ```bash
 # 在 Claude Code 中执行
-/figma:design-to-code
+/figma
 
 # 然后提供 Figma URL
 请将这个设计稿转换为 React + Tailwind 代码：
@@ -139,10 +139,13 @@ my-dotai/
 │       │   └── README.md
 │       └── figma/              # Figma 插件
 │           ├── .claude-plugin/
-│           │   └── plugin.json
-│           ├── .mcp.json       # MCP 服务器配置
+│           │   ├── plugin.json
+│           │   └── .mcp.json   # MCP 服务器配置
 │           ├── commands/
-│           │   └── design-to-code.md
+│           │   └── to-code.md
+│           ├── skills/
+│           │   └── figma-to-code/
+│           │       └── SKILL.md
 │           ├── install.sh      # 配置脚本
 │           ├── install.ps1
 │           ├── README.md

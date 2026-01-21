@@ -38,7 +38,7 @@ powershell -ExecutionPolicy Bypass -File .claude-plugin\plugins\figma\install.ps
 ### 步骤 5: 开始使用
 
 ```bash
-/figma:design-to-code
+/figma
 ```
 
 然后提供你的 Figma 设计稿 URL。

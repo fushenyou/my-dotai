@@ -20,13 +20,6 @@
     "svelte",
     "angular"
   ],
-  "skills": [
-    {
-      "id": "figma:design-to-code",
-      "name": "Figma 设计稿转代码",
-      "description": "根据 Figma 设计稿自动生成前端代码"
-    }
-  ],
   "commands": [
     {
       "id": "figma:to-code",
