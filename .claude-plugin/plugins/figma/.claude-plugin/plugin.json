@@ -1,9 +1,30 @@
 {
   "name": "figma",
-  "description": "Figma 设计稿转代码插件，高度还原设计稿细节",
-  "version": "0.1.0",
-  "author": {
-    "name": "fushenyou",
-    "email": "fushenyou@users.noreply.github.com"
+  "displayName": "Figma 设计稿转代码",
+  "version": "1.0.0",
+  "description": "自动从 Figma 设计稿生成代码，支持多种前端框架",
+  "author": "fusy",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "figma:design-to-code",
+      "displayName": "Figma 设计稿转代码",
+      "description": "根据 Figma 设计稿自动生成前端代码，智能识别项目框架和规范",
+      "file": "SKILL.md",
+      "alwaysApply": false
+    }
+  ],
+  "commands": [
+    {
+      "name": "figma:to-code",
+      "displayName": "/figma",
+      "description": "从 Figma 设计稿生成代码",
+      "file": "commands/to-code.md"
+    }
+  ],
+  "mcp": ".mcp.json",
+  "hooks": {
+    "onInstall": "scripts/install.sh",
+    "onUninstall": "scripts/uninstall.sh"
   }
 }

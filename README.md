@@ -1,203 +1,260 @@
 # my-dotai
 
-> Claude Code 插件集合 - 简化开发工作流
+> Claude Code 插件集合（Marketplace）- 简化开发工作流
 
-## 概述
+这是一个为 Claude Code 定制的插件集合（Marketplace），提供 Git 自动提交、Figma 设计稿转代码等实用功能。
 
-这是一个为 Claude Code 提供快捷命令的插件集合，帮助开发者提高工作效率，简化日常开发任务。
+## 📦 包含的插件
 
-## 可用插件
-
-### 🚀 Git Commit Plugin
+### 1. Git 插件
 
 自动 Git 提交工具，一键生成语义化提交信息。
 
-**安装：**
-```bash
-npx shadcn@latest add https://raw.githubusercontent.com/YOUR_USERNAME/my-dotai/main/registry/git-commit.json
-```
-
-**使用：**
-```bash
-/git:commit
-```
-
-**功能：**
+**功能**：
 - 自动暂存所有修改
-- 智能分析代码改动
+- 智能分析修改内容
 - 生成符合 Conventional Commits 规范的提交信息
 - 一键完成提交
 
-[查看完整文档 →](./.claude-plugin/plugins/git-commit/README.md)
-
-## 快速开始
-
-### 方式一：使用 Marketplace 安装（推荐）
-
-1. 添加插件市场：
-```bash
-/plugin marketplace add fushenyou/my-dotai
-```
-
-2. 安装插件：
-```bash
-/plugin install git-commit@my-dotai
-```
-
-3. 重启 Claude Code
-
-4. 开始使用：
+**使用**：
 ```bash
 /git:commit
 ```
 
-### 方式二：使用 Registry 安装
+**文档**：[Git 插件文档](./.claude-plugin/plugins/git/README.md)
 
-1. 安装插件：
+### 2. Figma 插件
+
+Figma 设计稿转代码插件，通过 figma-developer-mcp 高度还原设计细节。
+
+**功能**：
+- 获取 Figma 设计稿详细信息
+- 智能分析布局、样式、组件
+- 生成 React/Vue/HTML 代码
+- 支持 Tailwind CSS、CSS Modules、Styled Components
+- 自动 MCP 配置
+
+**使用**：
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/fushenyou/my-dotai/main/registry/git-commit.json
+/figma:design-to-code
 ```
 
-2. 重启 Claude Code
+**文档**：[Figma 插件文档](./.claude-plugin/plugins/figma/README.md)
 
-3. 开始使用：
+## 🚀 安装 Marketplace
+
+### 方式一：通过 Claude Code UI（推荐）
+
+1. 打开 Claude Code
+2. 进入 **Settings** → **Plugins**
+3. 点击 **"Add Marketplace"**
+4. 输入：`github.com/fushenyou/my-dotai`
+5. 点击 **"Add"**
+6. 选择要安装的插件（Git 或 Figma）
+
+### 方式二：手动配置
+
+编辑 `~/.claude/extra_marketplaces.json`（如果不存在则创建）：
+
+```json
+{
+  "my-dotai": {
+    "source": {
+      "source": "github",
+      "repo": "fushenyou/my-dotai"
+    }
+  }
+}
+```
+
+然后重启 Claude Code，在 **Settings** → **Plugins** 中可以看到并安装插件。
+
+## 🔧 配置插件
+
+### Git 插件
+
+无需额外配置，安装后可直接使用。
+
+### Figma 插件
+
+安装后需要配置 Figma Access Token：
+
+**macOS/Linux**：
 ```bash
+cd ~/.claude/plugins/marketplaces/my-dotai/.claude-plugin/plugins/figma
+bash install.sh figd_your_token_here
+```
+
+**Windows**：
+```powershell
+cd ~/.claude\plugins\marketplaces\my-dotai\.claude-plugin\plugins\figma
+powershell -ExecutionPolicy Bypass -File install.ps1 -FigmaApiKey "figd_your_token_here"
+```
+
+**配置说明**：
+- Token 会被添加到 `~/.claude/settings.json`
+- MCP 服务器会自动读取环境变量
+- 重启 Claude Code 后生效
+
+详见：[Figma 快速开始](./.claude-plugin/plugins/figma/QUICKSTART.md)
+
+## 📖 使用指南
+
+### Git 自动提交
+
+```bash
+# 在 Claude Code 中执行
 /git:commit
+
+# 插件会自动：
+# 1. git add .
+# 2. 分析修改内容
+# 3. 生成提交信息
+# 4. 完成提交
 ```
 
-### 方式三：手动安装
+### Figma 设计稿转代码
 
-1. 克隆仓库：
 ```bash
-git clone https://github.com/fushenyou/my-dotai.git
-cd my-dotai
+# 在 Claude Code 中执行
+/figma:design-to-code
+
+# 然后提供 Figma URL
+请将这个设计稿转换为 React + Tailwind 代码：
+https://www.figma.com/file/xxxxx
 ```
 
-2. 复制插件到你的项目：
-```bash
-# 在你的项目根目录
-mkdir -p .claude-plugin/plugins
-cp -r /path/to/my-dotai/.claude-plugin/plugins/* .claude-plugin/plugins/
-```
-
-3. 重启 Claude Code
-
-## 插件开发
-
-### 插件结构
+## 🏗️ 项目结构
 
 ```
-.claude-plugin/
-└── plugins/
-    └── your-plugin/
-        ├── README.md           # 插件文档
-        └── commands/           # 命令定义
-            └── your-command.md # /plugin:command
+my-dotai/
+├── .claude-plugin/
+│   ├── marketplace.json        # Marketplace 配置
+│   └── plugins/
+│       ├── git/                # Git 插件
+│       │   ├── .claude-plugin/
+│       │   │   └── plugin.json
+│       │   ├── commands/
+│       │   │   └── commit.md
+│       │   └── README.md
+│       └── figma/              # Figma 插件
+│           ├── .claude-plugin/
+│           │   └── plugin.json
+│           ├── .mcp.json       # MCP 服务器配置
+│           ├── commands/
+│           │   └── design-to-code.md
+│           ├── install.sh      # 配置脚本
+│           ├── install.ps1
+│           ├── README.md
+│           ├── QUICKSTART.md
+│           └── ARCHITECTURE.md
+└── registry/                   # 注册表文件
+    └── index.json
 ```
 
-### 创建新插件
+## 🎯 Marketplace 规范
+
+这个仓库遵循 [Claude Code Marketplace 标准](https://claude.ai/docs/marketplace)：
+
+### 必需文件
+
+- `.claude-plugin/marketplace.json` - Marketplace 配置
+- `.claude-plugin/plugins/xxx/.claude-plugin/plugin.json` - 插件元数据
+- `.claude-plugin/plugins/xxx/commands/*.md` - 插件命令
+
+### 可选文件
+
+- `.mcp.json` - MCP 服务器配置
+- `install.sh` / `install.ps1` - 配置脚本
+- `README.md` - 插件文档
+
+## 🛠️ 开发
+
+### 添加新插件
 
 1. 创建插件目录：
 ```bash
-mkdir -p .claude-plugin/plugins/your-plugin/commands
+mkdir -p .claude-plugin/plugins/your-plugin/{.claude-plugin,commands}
 ```
 
-2. 创建命令文件 `commands/your-command.md`：
+2. 添加插件配置 `.claude-plugin/plugin.json`：
+```json
+{
+  "name": "your-plugin",
+  "description": "插件描述",
+  "version": "0.1.0",
+  "author": {
+    "name": "your-name",
+    "email": "your-email@example.com"
+  }
+}
+```
+
+3. 添加插件命令 `commands/your-command.md`：
 ```markdown
 ---
-description: 你的命令描述
+description: 命令描述
 ---
 
-你是一个专家助手...（命令指令）
+命令的详细指令...
 ```
 
-3. 创建插件文档 `README.md`：
-```markdown
-# Your Plugin
-
-> 插件简介
-...
+4. 更新 `.claude-plugin/marketplace.json`：
+```json
+{
+  "plugins": [
+    {
+      "name": "your-plugin",
+      "source": "./.claude-plugin/plugins/your-plugin",
+      "description": "插件描述"
+    }
+  ]
+}
 ```
 
-4. 重启 Claude Code
-5. 使用 `/plugin:your-command` 调用命令
+### 测试插件
 
-## 命令规范
+```bash
+# 克隆你的 marketplace 仓库到本地
+cd ~/.claude/plugins/marketplaces
+git clone https://github.com/fushenyou/my-dotai.git
 
-### 命令文件格式
-
-命令文件必须包含 frontmatter：
-
-```markdown
----
-description: 简短的命令描述
----
-
-这里是命令的详细指令...
+# 重启 Claude Code
+# 插件会自动加载
 ```
 
-### 命令命名
+## 🤝 贡献
 
-- 格式：`/plugin-name:command-name`
-- 示例：`/git:commit`, `/test:run`
-- 使用小写字母和连字符
+欢迎贡献！你可以：
 
-### 命令最佳实践
+- 报告 Bug
+- 提出新功能建议
+- 提交 Pull Request
+- 改进文档
 
-1. **清晰的描述**：frontmatter 中的 description 要简明扼要
-2. **详细指令**：命令文件中包含完整的工作流程
-3. **示例说明**：提供使用示例和注意事项
-4. **错误处理**：说明常见问题和解决方案
-
-## 贡献指南
-
-欢迎贡献插件！
-
-### 提交流
+### 贡献流程
 
 1. Fork 本仓库
-2. 创建特性分支：`git checkout -b feature/your-plugin`
-3. 提交改动：`git commit -m 'feat: 添加新插件'`
-4. 推送分支：`git push origin feature/your-plugin`
-5. 创建 Pull Request
+2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
+3. 提交更改 (`git commit -m 'feat: add amazing feature'`)
+4. 推送到分支 (`git push origin feature/amazing-feature`)
+5. 开启 Pull Request
 
-### 插件要求
+## 📚 相关资源
 
-- 实用性：解决实际开发问题
-- 文档完整：包含详细的使用说明
-- 代码质量：命令指令清晰、准确
-- 测试验证：在实际项目中测试通过
+- [Claude Code 官方文档](https://claude.ai/docs)
+- [dotai Marketplace](https://github.com/udecode/dotai) - 灵感来源
+- [MCP 协议规范](https://modelcontextprotocol.io/)
 
-## 常见问题
-
-### Q: 如何查看已安装的插件？
-
-A: 查看项目的 `.claude-plugin/plugins/` 目录。
-
-### Q: 命令不生效？
-
-A: 确保已重启 Claude Code，并检查命令文件格式是否正确。
-
-### Q: 如何卸载插件？
-
-A: 删除对应的插件目录并重启 Claude Code。
-
-### Q: 可以创建多个命令吗？
-
-A: 可以！在 `commands/` 目录下创建多个 `.md` 文件即可。
-
-## 路线图
-
-- [ ] Git Commit Plugin ✅
-- [ ] Test Runner Plugin
-- [ ] Code Review Plugin
-- [ ] Documentation Generator Plugin
-- [ ] 更多实用插件...
-
-## 许可证
+## 📝 许可证
 
 MIT License
 
-## 致谢
+## 👤 作者
 
-灵感来自 [udecode/dotai](https://github.com/udecode/dotai) 项目。
+Created by [fushenyou](https://github.com/fushenyou)
+
+## 🙏 致谢
+
+- [dotai](https://github.com/udecode/dotai) - 项目结构和最佳实践参考
+- [Claude Code Team](https://claude.ai) - 优秀的开发工具
