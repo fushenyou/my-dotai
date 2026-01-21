@@ -1,7 +1,6 @@
 ---
 name: figma-code-gen
 description: 从 Figma 设计文件自动生成代码，支持创建页面和可复用组件
-alwaysApply: false
 ---
 
 # figma-code-gen - Figma 代码生成技能
