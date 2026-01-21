@@ -12,8 +12,11 @@
 
 ### 步骤 2: 安装插件
 
+从 GitHub 克隆仓库：
+
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/fushenyou/my-dotai/main/registry/figma.json
+git clone https://github.com/fushenyou/my-dotai.git
+cd my-dotai
 ```
 
 ### 步骤 3: 配置 MCP

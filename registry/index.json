@@ -11,7 +11,7 @@
     {
       "name": "figma",
       "description": "Figma 设计稿转代码插件",
-      "url": "https://raw.githubusercontent.com/fushenyou/my-dotai/main/registry/figma.json"
+      "path": ".claude-plugin/plugins/figma"
     }
   ]
 }

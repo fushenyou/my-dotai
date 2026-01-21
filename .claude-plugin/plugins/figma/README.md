@@ -94,27 +94,27 @@ echo 'export FIGMA_ACCESS_TOKEN="your_figma_token_here"' >> ~/.zshrc
 
 ### 安装插件
 
-#### 方式一：使用 shadcn registry（推荐）
+#### 方式一：从 GitHub 仓库安装（推荐）
 
+1. **克隆或下载仓库**
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/fushenyou/my-dotai/main/registry/figma.json
+git clone https://github.com/fushenyou/my-dotai.git
+cd my-dotai
 ```
 
-安装完成后，运行配置脚本：
+2. **运行配置脚本**
 
 **macOS/Linux**：
 ```bash
-cd .claude-plugin/plugins/figma
-bash install.sh your_figma_access_token
+bash .claude-plugin/plugins/figma/install.sh your_figma_access_token
 ```
 
 **Windows**：
 ```powershell
-cd .claude-plugin\plugins\figma
-.\install.ps1 -FigmaApiKey "your_figma_access_token"
+powershell -ExecutionPolicy Bypass -File .claude-plugin/plugins/figma/install.ps1 -FigmaApiKey "your_figma_access_token"
 ```
 
-然后重启 Claude Code。
+3. **重启 Claude Code**
 
 #### 方式二：手动安装
 
