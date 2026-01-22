@@ -5,7 +5,8 @@
       "command": "npx",
       "args": [
         "-y",
-        "figma-developer-mcp"
+        "figma-developer-mcp",
+        "--stdio"
       ]
     }
   }
