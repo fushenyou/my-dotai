@@ -12,5 +12,6 @@
     "design-to-code",
     "ui-components",
     "workflow"
-  ]
+  ],
+  "mcpServers": "./mcp.json"
 }
