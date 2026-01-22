@@ -97,6 +97,56 @@ git clone https://github.com/your-username/figma-plugin.git figma
 }
 \`\`\`
 
+### Claude Code 配置
+
+在 Claude Code 中使用此插件需要手动配置 MCP 服务器：
+
+#### 配置文件位置
+
+- **macOS/Linux**: `~/.claude.json`
+
+#### 配置步骤
+
+1. **创建或编辑配置文件**：
+
+\`\`\`bash
+# macOS/Linux
+nano ~/.claudejson
+
+\`\`\`
+
+2. **添加以下配置**：
+
+\`\`\`json
+{
+  "mcpServers": {
+    "figma-developer-mcp": {
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp", "--stdio"]
+    }
+  }
+}
+\`\`\`
+
+3. **保存文件并重启 Claude Code**
+
+4. **验证配置**：
+
+运行以下命令确认 MCP 服务器已正确加载：
+
+\`\`\`bash
+claude mcp list
+\`\`\`
+
+你应该能看到 `figma-developer-mcp` 在服务器列表中。
+
+#### 通用注意事项
+
+1. **Node.js 版本**：确保已安装 Node.js 18 或更高版本
+2. **网络连接**：首次运行时会自动下载 `figma-developer-mcp` 包，需要网络连接
+3. **权限问题**：如果遇到权限错误，可能需要使用 `sudo`（仅限 macOS/Linux）
+4. **npx 缓存**：如果遇到问题，可以尝试清除 npx 缓存：`npx clear-npx-cache`
+
 ### 项目规范识别
 
 插件会自动检测：

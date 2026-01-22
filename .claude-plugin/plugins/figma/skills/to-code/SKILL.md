@@ -37,30 +37,13 @@ description: 从 Figma 设计文件自动生成代码，支持创建页面和可
    $ARGUMENTS = "<Figma URL> [--page|--component]"
    ```
 
-2. **提取 Figma 文件 ID 和节点 ID**
-   - 从 URL 中提取文件 ID（格式：`/site/{FILE_ID}/`）
-   - 提取节点 ID（`node-id` 参数）
-   - 验证 URL 格式是否正确
-
-3. **确定生成模式**
+2. **确定生成模式**
    - 检测 `--page` 或 `--component` 标志
    - 如果都没有，默认为页面模式
 
 ### 第二步：获取 Figma 数据
 
-使用 figma-developer-mcp MCP 工具获取设计数据：
-
-\`\`\`
-# 1. 获取全面的 Figma 文件数据
-mcp__figma-developer-mcp__get_figma_data
-  file_id: "<FILE_ID>"
-  node_id: "<NODE_ID>"
-
-# 2. （可选）下载设计中的图片和图标
-mcp__figma-developer-mcp__download_figma_images
-  file_id: "<FILE_ID>"
-  image_ids: ["<IMAGE_ID_1>", "<IMAGE_ID_2>", ...]
-\`\`\`
+使用 figma-developer-mcp MCP 工具获取设计数据
 
 **MCP 工具说明**：
 
