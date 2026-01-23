@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "mysql": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@f4ww4z/mcp-mysql-server"]
+    }
+  }
+}

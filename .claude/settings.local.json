@@ -3,7 +3,9 @@
     "allow": [
       "Skill(create-plugin)",
       "Skill(git:commit)",
-      "Skill(skills:using-skills)"
+      "Skill(skills:using-skills)",
+      "mcp__zread__get_repo_structure",
+      "mcp__zread__read_file"
     ]
   }
 }

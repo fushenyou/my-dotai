@@ -1,0 +1,17 @@
+{
+  "name": "mysql-db",
+  "version": "0.1.0",
+  "description": "MySQL 数据库智能助手 - 提供数据库结构分析、SQL 生成、数据可视化和架构设计功能",
+  "author": {
+    "name": "fushenyou"
+  },
+  "keywords": [
+    "mysql",
+    "database",
+    "sql",
+    "schema",
+    "visualization",
+    "echarts"
+  ],
+  "license": "MIT"
+}
