@@ -69,11 +69,19 @@ metadata:
 将分析结果写入 Obsidian 笔记库，格式参考 [references/report-template.md](references/report-template.md)。
 
 **保存规则**：
-- **保存目录**：`/Users/fusy/workspace/ObsidianVault/NoteBooks/note/代码分析/`
+- **保存目录**：通过以下方式确定（优先级从高到低）：
+  1. 用户在交互确认阶段指定的目录
+  2. 自动检测本地 Obsidian 笔记库路径（搜索 `~/ObsidianVault`、`~/obsidian`、`~/Documents/ObsidianVault` 等常见位置）
+  3. 若无法自动确定，**必须使用 AskUserQuestion 向用户确认**输出目录，不可猜测或使用默认路径
 - **主报告文件名**：`{项目名}-架构分析.md`
 - **图表文件**：与主报告同目录
 - **内容语言**：中文
-- 保存前自动创建目录：`mkdir -p "/Users/fusy/workspace/ObsidianVault/NoteBooks/note/代码分析"`
+- 保存前自动创建目录：`mkdir -p "{用户确认的保存目录}"`
+
+**路径安全原则**：
+- 报告内容和交互中**不得**包含用户本地系统的绝对路径（如 `/Users/xxx/...`）
+- 报告 frontmatter 中的 `path` 字段仅记录项目名称，不记录完整路径
+- 目录结构展示使用相对路径，不暴露用户主目录信息
 
 ## 图表生成策略
 
@@ -120,8 +128,10 @@ metadata:
 ## 数据流          ← 关键数据流转路径
 ## 设计模式与亮点  ← 值得学习的设计决策
 ## 推荐阅读路径    ← 从哪开始读代码
-## 附录            ← 文件结构树、依赖关系
+## 附录            ← 文件结构树、依赖关系（使用相对路径）
 ```
+
+**路径安全**：报告中所有文件路径使用相对于项目根目录的相对路径，不暴露用户主目录等敏感信息。
 
 ## 质量检查
 

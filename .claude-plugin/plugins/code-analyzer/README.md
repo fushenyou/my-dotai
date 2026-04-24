@@ -34,14 +34,15 @@
 
 ## 输出位置
 
-- **分析报告**：`ObsidianVault/NoteBooks/note/代码分析/{项目名}-架构分析.md`
+- **分析报告**：`{Obsidian 笔记库}/代码分析/{项目名}-架构分析.md`
 - **架构图表**：与报告同目录
+- 输出目录通过交互确认或自动检测 Obsidian 笔记库路径确定
 
 ## 依赖
 
 - [excalidraw-diagram](obsidian-visual-skills) — 生成架构图和模块关系图
 - [mermaid-visualizer](obsidian-visual-skills) — 生成流程图和时序图
-- Obsidian 笔记库（`/Users/fusy/workspace/ObsidianVault`）
+- Obsidian 笔记库（自动检测或交互确认路径）
 
 ## 版本
 
