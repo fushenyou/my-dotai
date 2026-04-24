@@ -23,6 +23,11 @@
       "name": "mysql-db",
       "source": "./.claude-plugin/plugins/mysql-db",
       "description": "MySQL 数据库智能助手 - 提供数据库结构分析、SQL 生成、数据可视化和架构设计功能"
+    },
+    {
+      "name": "code-analyzer",
+      "source": "./.claude-plugin/plugins/code-analyzer",
+      "description": "代码架构分析工具 - 快速理解项目结构、框架设计思路，生成结构化分析文档到 Obsidian"
     }
   ]
 }

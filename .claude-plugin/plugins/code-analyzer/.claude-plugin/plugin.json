@@ -1,0 +1,18 @@
+{
+  "name": "code-analyzer",
+  "version": "0.1.0",
+  "description": "代码架构分析工具 - 快速理解项目结构、框架设计思路，生成结构化分析文档到 Obsidian 笔记库",
+  "author": {
+    "name": "fushenyou",
+    "email": "fushenyou@users.noreply.github.com"
+  },
+  "keywords": [
+    "code-analysis",
+    "architecture",
+    "codebase",
+    "obsidian",
+    "excalidraw",
+    "mermaid"
+  ],
+  "license": "MIT"
+}

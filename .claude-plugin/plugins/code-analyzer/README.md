@@ -1,0 +1,48 @@
+# code-analyzer
+
+代码架构分析工具 — 快速理解项目结构、框架设计思路，生成结构化分析文档到 Obsidian 笔记库。
+
+## 功能
+
+- **项目架构分析** — 自动识别技术栈，解读整体架构设计
+- **模块关系梳理** — 分析模块间依赖、通信和数据流
+- **设计模式识别** — 发现值得学习的设计决策和实现技巧
+- **可视化图表** — 架构图（Excalidraw）+ 流程图/时序图（Mermaid）
+- **阅读路径推荐** — 从入口到细节的学习顺序
+- **Obsidian 集成** — 分析报告直接保存到笔记库
+
+## 使用方式
+
+### 斜杠命令
+
+```
+/code-analyzer:analyze [项目路径] [选项]
+```
+
+**选项**：
+- `--quick` — 仅生成速览卡片
+- `--module <模块名>` — 聚焦分析指定模块
+- `--no-diagram` — 不生成图表
+
+### 技能自动触发
+
+当你在对话中提到以下内容时，技能会自动触发：
+- "分析代码"、"项目架构"、"代码结构"
+- "框架设计"、"了解项目"、"梳理代码"
+- "architecture"、"codebase overview"
+- "帮我看看这个项目"
+
+## 输出位置
+
+- **分析报告**：`ObsidianVault/NoteBooks/note/代码分析/{项目名}-架构分析.md`
+- **架构图表**：与报告同目录
+
+## 依赖
+
+- [excalidraw-diagram](obsidian-visual-skills) — 生成架构图和模块关系图
+- [mermaid-visualizer](obsidian-visual-skills) — 生成流程图和时序图
+- Obsidian 笔记库（`/Users/fusy/workspace/ObsidianVault`）
+
+## 版本
+
+- 0.1.0 — 初始版本
